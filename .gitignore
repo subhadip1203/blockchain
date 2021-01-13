@@ -1,0 +1,15 @@
+
+# Dependency directory
+# https://docs.npmjs.com/cli/shrinkwrap#caveats
+node_modules
+
+.env
+
+# Logs
+logs
+*.log
+
+
+# congig files
+# BlockContainer
+# setup.js
