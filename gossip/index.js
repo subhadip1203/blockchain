@@ -24,4 +24,7 @@ const PORT = 8000;
 app.listen(PORT, ()=>{
     //eslint-disable-next-line max-len
     console.log(`---- Server started , Listing on PORT : http://localhost:${PORT}`);
+    setInterval(()=>{
+        console.log('Hello');
+    }, 1000);
 });
