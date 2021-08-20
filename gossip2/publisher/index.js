@@ -18,10 +18,10 @@ redis.on("message", (channel, message) => {
   console.log(`Received ${message} from ${channel}`);
 });
 
-// There's also an event called 'messageBuffer', which is the same as 'message' except
-// it returns buffers instead of strings.
-// It's useful when the messages are binary data.
-redis.on("messageBuffer", (channel, message) => {
-  // Both `channel` and `message` are buffers.
-  console.log(channel, message);
-});
+// // There's also an event called 'messageBuffer', which is the same as 'message' except
+// // it returns buffers instead of strings.
+// // It's useful when the messages are binary data.
+// redis.on("messageBuffer", (channel, message) => {
+//   // Both `channel` and `message` are buffers.
+//   console.log(channel, message);
+// });
