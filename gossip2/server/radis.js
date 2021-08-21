@@ -18,15 +18,17 @@ async function get_set_next_publisher(){
     }
     catch(err){
         console.log(err)
-        return 1
+        return null
     }    
 }
 
-async function publish_to(message){
-    // const channel = `my-channel-${publisher_no}`;
-    // await redis.publish(channel, JSON.stringify(message));
+async function publish_to(message){    
     
-    const publisher = await get_set_next_publisher();
+    const subscriber = await get_set_next_publisher();
+    if(subscriber){
+        const channel = `my-channel-${subscriber}`;
+        await redis.publish(channel, JSON.stringify(message));
+    }
 }
 
 
