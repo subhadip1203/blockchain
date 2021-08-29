@@ -2,6 +2,8 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 
+const broadcast = require('./broadcast');
+
 /*===================================================================
                     Middleware initilization         
 ==================================================================== */
@@ -14,8 +16,9 @@ app.use(express.urlencoded({ extended: false }));
 app.get('/', async function (req, res) {
     const ping = { status: 'live', time: new Date().getTime() };
     res.status(200).send(ping);
-    const broadcast = await axios.get('http://localhost:8100/delay/3')
-    console.log(broadcast.data)
+    const broadcastData = await axios.get('http://localhost:8100/delay/3')
+    console.log(broadcastData.data)
+    broadcast()
 });
 
 /*===========================================================================
