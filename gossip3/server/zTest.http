@@ -1,0 +1,21 @@
+###
+GET http://localhost:8000/ HTTP/1.1
+
+
+######
+GET http://localhost:8000/mypeers HTTP/1.1
+
+###
+POST http://localhost:8000/ HTTP/1.1
+content-type: application/json
+
+{
+    "company_name": "test50",
+    "dataId": "abcd123", 
+    "notifiedPeers" : ["xyx"] , 
+    "data": "somedata"
+}
+
+
+
+
