@@ -29,7 +29,7 @@ const addPeers = async ( peerarray) => {
   }
 }
 
-const updateRedisdata = async (dataID , peers ,data ) => {
+const updateDataIds = async (dataID , peers ,data ) => {
   try{
     const requestdata = await getData(dataID , 'JSON');
     if(requestdata){
@@ -55,7 +55,7 @@ const receiveData = async (rec) => {
     const { dataId, notifiedPeers, data ,failedPeers} = rec
     const allpeers = await addPeers(notifiedPeers)
     console.log(allpeers)
-    const peersAssociated = await updateRedisdata(dataId,notifiedPeers, data )
+    const peersAssociated = await updateDataIds(dataId,notifiedPeers, data )
     const peersLeft = allpeers.filter( ( el ) => !peersAssociated.includes( el ) );
     return peersLeft
   }
@@ -76,4 +76,14 @@ const myPeers = async() => {
   }
 }
 
-module.exports = {receiveData ,myPeers}
+const perticularBlock = async(blockid) => {
+  try{
+    const  perticularBlock = await getData(blockid , 'JSON')
+    return perticularBlock
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+
+module.exports = {receiveData ,myPeers , perticularBlock}

@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const redisInit = require('./redis/initialData');
-const {receiveData, myPeers} = require('./action/index')
+const {receiveData, myPeers , perticularBlock} = require('./action/index')
 
 /*===================================================================
                     Middleware initilization         
@@ -38,6 +38,12 @@ app.get('/mypeers', async function (req, res) {
     }
     
     
+});
+
+app.get('/block/:blockID', async function (req, res) {
+    const blockId = req.params.blockID
+    const blockdata = await perticularBlock(blockId);
+    res.status(200).send(blockdata);
 });
 
 /*===========================================================================
