@@ -16,6 +16,7 @@ content-type: application/json
     "data": "somedata"
 }
 
-
+######
+GET http://localhost:8000/block/abcd123 HTTP/1.1
 
 
